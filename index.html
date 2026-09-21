@@ -1,0 +1,1707 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <meta name="description" content="GM-only adventure runner for The Sunless Street">
+  <title>The Sunless Street — GM Runner</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="mobile-bar"><button type="button" data-action="toggle-nav">☰ MENU</button><span>The Sunless Street · GM Runner</span></div>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Adventure navigation">
+      <div class="brand">
+        <div class="brand-kicker">Spyre · GM Only</div>
+        <div class="brand-title">The Sunless Street</div>
+        <div class="brand-subtitle">Static adventure runner</div>
+      </div>
+      <div class="search-box">
+        <label for="gm-search">Find in adventure · Ctrl K</label>
+        <input id="gm-search" type="search" autocomplete="off" placeholder="Name, location, mechanic…">
+        <div id="search-results" class="search-results" hidden></div>
+      </div>
+      <nav class="nav-scroll">
+<div class="nav-heading">Adventure</div>
+<ul class="nav-list">
+  <li><a href="#adventure-overview">Adventure Overview</a></li>
+  <li><a href="#running-the-adventure">Running the Adventure</a></li>
+  <li><a href="#scene-1--survivors">Scene 1 — Survivors</a></li>
+  <li><a href="#scene-2--fool--fortune">Scene 2 — Fool &amp; Fortune</a></li>
+  <li>
+    <a href="#scene-3--tallow-street">Scene 3 — Tallow Street</a>
+    <ul>
+      <li><a href="#the-gilded-kraken">The Gilded Kraken</a></li>
+      <li><a href="#marlowes-fine-goods">Marlowe's Fine Goods</a></li>
+      <li><a href="#no-17-residence">No. 17 Residence</a></li>
+      <li><a href="#sable-house">Sable House</a></li>
+      <li><a href="#hearth--thorn">Hearth &amp; Thorn</a></li>
+      <li><a href="#the-broken-compass">The Broken Compass</a></li>
+      <li><a href="#veys-charts--surveys">Vey's Charts &amp; Surveys</a></li>
+      <li><a href="#rear-courtyard-and-older-stairs">Rear Courtyard</a></li>
+    </ul>
+  </li>
+  <li><a href="#scene-4--return-to-fool--fortune">Scene 4 — Return</a></li>
+</ul>
+<div class="nav-heading">Appendices</div>
+<ul class="nav-list">
+  <li><a href="#appendix-a--hutch-quick-reference">A — Hutch</a></li>
+  <li><a href="#appendix-b--ragling-attention-tracker">B — Attention</a></li>
+  <li><a href="#appendix-c--ragling-statistics">C — Raglings</a></li>
+  <li><a href="#appendix-d--treasure-and-rewards">D — Treasure</a></li>
+  <li><a href="#appendix-e--hearth--thorn-consumables">E — Consumables</a></li>
+  <li><a href="#appendix-f--tallow-street-quick-reference">F — Tallow Street</a></li>
+  <li><a href="#appendix-g--player-handout-index">G — Handouts</a></li>
+  <li><a href="#appendix-h--media-and-tv-display-reference">H — Media</a></li>
+</ul></nav>
+      <div class="quick-tools">
+        <div class="quick-tools-row">
+          <button class="tool-button" type="button" data-open-quick="appendix-a--hutch-quick-reference">HUTCH</button>
+          <button class="tool-button" type="button" data-open-quick="appendix-f--tallow-street-quick-reference">TALLOW ST.</button>
+          <button class="tool-button" type="button" data-open-quick="appendix-c--ragling-statistics">RAGLINGS</button>
+          <button class="tool-button" type="button" data-open-quick="appendix-e--hearth--thorn-consumables">ITEMS</button>
+        </div>
+        <section class="attention" data-state="0" aria-label="Ragling Attention tracker">
+          <div class="attention-top">
+            <div>
+              <div class="attention-label">Ragling Attention</div>
+              <div class="attention-readout"><span data-attention-value>0</span> — <span data-attention-name>Unaware</span></div>
+            </div>
+            <div class="attention-controls">
+              <button type="button" data-action="attention-down" aria-label="Decrease Ragling Attention">−</button>
+              <button type="button" data-action="attention-up" aria-label="Increase Ragling Attention">+</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <main class="main-shell">
+      <div class="reading-surface">
+        <details class="metadata"><summary>Document metadata</summary><pre>---
+id: the-sunless-street
+title: The Sunless Street
+status: canon
+audience: gm-only
+knowledge: mixed
+content_status: locked
+publication_status: ready-for-layout-review
+---</pre></details>
+        <article class="manuscript"><header class="title-page"><h1 id="spyre">SPYRE</h1>
+<h2 id="the-sunless-street">THE SUNLESS STREET</h2>
+<h3 id="a-shadowdark-adventure">A Shadowdark Adventure</h3>
+<p>This GM-facing adventure takes characters from shipwreck survivors to first-time delvers beneath Spyre. Its mysteries extend beyond the session; run what the players pursue and leave the rest undisturbed.</p>
+</header><div class="page-break" aria-hidden="true"><span>◆</span></div>
+
+<h1 id="contents">Contents</h1>
+<ol>
+<li><a href="#adventure-overview">Adventure Overview</a></li>
+<li><a href="#running-the-adventure">Running the Adventure</a></li>
+<li><a href="#scene-1--survivors">Scene 1 — Survivors</a></li>
+<li><a href="#scene-2--fool--fortune">Scene 2 — Fool &amp; Fortune</a></li>
+<li><a href="#scene-3--tallow-street">Scene 3 — Tallow Street</a></li>
+<li><a href="#scene-4--return-to-fool--fortune">Scene 4 — Return to Fool &amp; Fortune</a></li>
+<li><a href="#appendix-a--hutch-quick-reference">Appendix A — Hutch Quick Reference</a></li>
+<li><a href="#appendix-b--ragling-attention-tracker">Appendix B — Ragling Attention Tracker</a></li>
+<li><a href="#appendix-c--ragling-statistics">Appendix C — Ragling Statistics</a></li>
+<li><a href="#appendix-d--treasure-and-rewards">Appendix D — Treasure and Rewards</a></li>
+<li><a href="#appendix-e--hearth--thorn-consumables">Appendix E — Hearth &amp; Thorn Consumables</a></li>
+<li><a href="#appendix-f--tallow-street-quick-reference">Appendix F — Tallow Street Quick Reference</a></li>
+<li><a href="#appendix-g--player-handout-index">Appendix G — Player Handout Index</a></li>
+<li><a href="#appendix-h--media-and-tv-display-reference">Appendix H — Media and TV Display Reference</a></li>
+</ol>
+<div class="page-break" aria-hidden="true"><span>◆</span></div>
+
+<h1 id="adventure-overview">Adventure Overview</h1>
+<p>The characters begin as strangers to Spyre and survivors of a shipwreck. <strong>The Silver Wake</strong> sank at sea beyond the harbor. Local fishermen pulled the characters from the water and brought them to a wet stone quay beneath the vast, layered city.</p>
+<p>They have no local affiliations, patron, reputation, or reliable lodging. Hutch, a weathered curiosity dealer and well-connected Under Hallow broker, meets them at the harbor. He offers warmth, food, basic equipment, and a modest recovery job: enter a recently exposed buried street and bring back useful cartographic material from <strong>Vey&#39;s Charts &amp; Surveys</strong>.</p>
+<p>Tallow Street lies beneath later construction. It is a preserved city street, not a sewer or purpose-built dungeon. Its tavern, shops, residence, sealed house, survey office, and buried courtyard hold ordinary remnants of neighborhood life alongside dangers and mysteries. The characters can complete the job without entering every building or fighting the Ragling colony that has nested among Vey&#39;s records.</p>
+<p>When they return, Hutch pays what he promised, reacts only to what they choose to disclose, and points them toward inexpensive lodging at <strong>The Crooked Nail</strong>. By the end of the adventure, the characters have moved through three quiet changes:</p>
+<blockquote>
+<p><strong>STRANGERS → SURVIVORS → BEGINNING DELVERS</strong></p>
+</blockquote>
+<p>This is a thematic progression for the GM, not a label to announce to the players.</p>
+<h2 id="what-the-adventure-is-about">What the Adventure Is About</h2>
+<ul>
+<li>Entering a city whose visible present rests on buried histories.</li>
+<li>Learning that information, maps, and access can be as valuable as gold.</li>
+<li>Making choices about risk, intrusion, salvage, and discovery.</li>
+<li>Establishing a trustworthy local relationship without surrendering agency.</li>
+<li>Leaving several mysteries open so player interest can shape later play.</li>
+</ul>
+<h2 id="adventure-flow">Adventure Flow</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Scene</th>
+<th>Situation</th>
+<th>Essential outcome</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1 — Survivors</strong></td>
+<td>The rescued PCs recover on the quay and see Spyre for the first time.</td>
+<td>Introduce the characters, establish Alex&#39;s absent PC safely, and meet Hutch.</td>
+</tr>
+<tr>
+<td><strong>2 — Fool &amp; Fortune</strong></td>
+<td>Hutch offers hospitality, explains the Under Hallow, and proposes the recovery job.</td>
+<td>Agree to the objective and terms, inspect the map, and outfit the party.</td>
+</tr>
+<tr>
+<td><strong>3 — Tallow Street</strong></td>
+<td>The PCs descend into a buried neighborhood and explore in any order.</td>
+<td>Recover meaningful Vey cartographic material and return alive.</td>
+</tr>
+<tr>
+<td><strong>4 — Return</strong></td>
+<td>The PCs debrief Hutch, settle payment and salvage, and find lodging.</td>
+<td>Establish their first foothold in Spyre without assigning another quest.</td>
+</tr>
+</tbody></table></div>
+<h2 id="success-and-failure">Success and Failure</h2>
+<p>The core success condition is simple: the party returns with meaningful maps, surveys, journals, route records, property plans, or comparable Vey material. They do not need all four major records. The Master Survey is a strong recovery; the Master Survey plus Survey Ledger is excellent; recovering most of the archive marks them as unusually capable first-time delvers.</p>
+<p>An empty-handed retreat is not a campaign failure. Hutch does not pay the recovery fee, but he does not impose debt or punishment. Survival, information, and a continuing relationship remain possible.</p>
+<p>Optional discoveries are never mandatory completion gates. The party may leave Sable House sealed, avoid the Raglings, ignore Deepthorn, miss the courtyard stairs, or withhold any discovery from Hutch.</p>
+<h2 id="knowledge-the-gm-needs">Knowledge the GM Needs</h2>
+<p>Spyre is an ancient functioning metropolis built over its own history. The <strong>Under Hallow</strong> is the vast subterranean environment beneath it: buried streets, structures, infrastructure, ruins, caves, and inhabited or forgotten spaces accumulated across many ages. Reliable entrances are rare and valuable. This adventure needs no fuller history of Spyre&#39;s eras.</p>
+<p>Tallow Street is dry, still, dusty, and completely underground. Later construction crushed or swallowed its upper stories. Its exact abandonment, burial sequence, dates, and era affiliation remain undefined.</p>
+<div class="page-break" aria-hidden="true"><span>◆</span></div>
+
+<h1 id="running-the-adventure">Running the Adventure</h1>
+<h2 id="shadowdark-assumptions">Shadowdark Assumptions</h2>
+<p>Use the table&#39;s normal Shadowdark rules for initiative, light, darkness, gear slots, encumbrance, morale, and death. The adventure adds only the Ragling Attention track and the location-specific procedures printed here.</p>
+<ul>
+<li>Ask what the players do before calling for a check.</li>
+<li>Roll only when the outcome is uncertain and failure has a meaningful consequence.</li>
+<li>A sound method, suitable tools, and enough time often succeed automatically.</li>
+<li>Important clues are not hidden behind generic Search, Perception, or INT checks.</li>
+<li>Reading and careful work cost time and light.</li>
+<li>Loud shortcuts may raise Ragling Attention.</li>
+<li>Gear and salvage occupy normal slots.</li>
+<li>Telegraph severe danger before damage.</li>
+<li>Combat is often optional.</li>
+<li>Creatures behave according to ecology, fear, curiosity, and protection of young.</li>
+<li>Information is treasure.</li>
+</ul>
+<h2 id="light">Light</h2>
+<p>Do not track light during Scenes 1–2. Begin normal real-time Shadowdark light tracking when the PCs enter Tallow Street through the warehouse breach.</p>
+<p>Tallow Street has no daylight, moonlight, open sky, working streetlights, or naturally illuminated windows. The party&#39;s portable light is the only meaningful illumination unless the GM explicitly establishes an exception. Show only what the light reaches; beyond it, darkness remains consequential.</p>
+<h2 id="time">Time</h2>
+<p>Careful entry, reading records, methodical searching, structural work, and harvesting all consume time. Do not turn every action into a separate clock. Use the normal light timer as the main pressure. Tallow Street has no random encounters.</p>
+<h2 id="gear-and-encumbrance">Gear and Encumbrance</h2>
+<p>Hutch can provide reasonable mundane equipment available during Shadowdark character generation. Normal gear-slot limits make choices meaningful. Track the larger finds:</p>
+<ul>
+<li>Kraken Black: <strong>1 slot per bottle</strong>.</li>
+<li>Vey&#39;s survey instrument: <strong>1 slot</strong>.</li>
+<li>Master Survey: <strong>1 slot</strong>.</li>
+<li>Survey Ledger: <strong>1 slot</strong>.</li>
+<li>District Map Case: <strong>2 slots</strong>.</li>
+<li>Field Journal: small enough for reasonable shared document storage.</li>
+</ul>
+<h2 id="player-agency">Player Agency</h2>
+<p>Never assume that the PCs enter every building, fight the Raglings, breach Sable House, open or take the reliquary, harvest Deepthorn, recover every document, discover the courtyard stairs, identify every clue, or tell Hutch everything. Scene 3 is exploratory. Scene 4 is conditional.</p>
+<h2 id="ragling-attention">Ragling Attention</h2>
+<p>Track Attention privately across the whole Tallow Street expedition. It begins at <strong>0</strong> and cannot exceed <strong>3</strong>.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>State</th>
+<th>Across Tallow Street</th>
+<th>At Vey&#39;s colony</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>0 — Unaware</strong></td>
+<td>Environmental evidence only.</td>
+<td>The colony does not know the party is present.</td>
+</tr>
+<tr>
+<td><strong>1 — Curious</strong></td>
+<td>Scratching, distant movement, signs of watching.</td>
+<td>One adult may investigate away from the archive.</td>
+</tr>
+<tr>
+<td><strong>2 — Following</strong></td>
+<td>Raglings shadow the party, appear at light&#39;s edge, cross the street, or investigate unattended small items.</td>
+<td>Adults know the party is inside and position between intruders and the nest.</td>
+</tr>
+<tr>
+<td><strong>3 — Alarmed</strong></td>
+<td>The colony knows loud or dangerous intruders are nearby.</td>
+<td>Adults are already defensively positioned.</td>
+</tr>
+</tbody></table></div>
+<p>Meaningfully loud actions usually raise Attention by <strong>1</strong>: bashing doors, smashing cases, structural collapse, sustained hammering, loud forced entry, repeated shouting, or combat. Ordinary walking, normal conversation, opening ordinary doors, searching, and exploration do not. Extended quiet exploration may reduce Attention by <strong>1</strong>, to a minimum of 0, at the GM&#39;s discretion; waiting still consumes light.</p>
+<p>Breaching Sable House sets Attention directly to <strong>3</strong>. Never count the same noise twice. Attention changes behavior; it never automatically begins combat.</p>
+<h2 id="adventure-wide-gm-principles">Adventure-Wide GM Principles</h2>
+<p><strong>Describe consequence before the roll.</strong> If speed risks noise or injury, tell the player what is at stake.</p>
+<p><strong>Preserve discoveries.</strong> Failure can cost time, position, gear, HP, or quiet. It should not erase the only clue or objective.</p>
+<p><strong>Let the neighborhood feel inhabited by its past.</strong> Domestic objects, business records, repair notes, tabs, and measurements matter. Not every object is occult.</p>
+<p><strong>Keep mysteries separate.</strong> BM-6, the courtyard stairs, Sable House, Deepthorn, the signet ring, and the ancient symbol do not form one hidden master plot in this adventure.</p>
+<div class="page-break" aria-hidden="true"><span>◆</span></div>
+
+<h1 id="scene-1--survivors">Scene 1 — Survivors</h1>
+<h2 id="purpose">Purpose</h2>
+<p>Introduce the PCs through what matters to them. Establish rescue, vulnerability, and a living city. Place Alex&#39;s absent character safely in care. Allow a short period of player-led interaction. End when Hutch introduces himself.</p>
+<h2 id="opening-situation">Opening Situation</h2>
+<p>The PCs were passengers on <strong>The Silver Wake</strong>, which sank at sea well outside Spyre&#39;s harbor. Local fishermen rescued them and brought them ashore. Begin after the rescue. The wreck is not visible, and its cause is unknown.</p>
+<p>The survivors sit or stand on a wet stone quay in the Harbor District, soaked, cold, exhausted, bruised, and without local status or connections. Work continues around them. Do not replay the wreck, invent a storm or attack, or treat their arrival as prophecy.</p>
+<blockquote>
+<p><strong>Read or paraphrase:</strong></p>
+<p>“You&#39;re alive.”</p>
+<p>Wet stone presses cold through your clothes. Rope creaks against timber; gulls quarrel overhead. The fishermen who pulled you from the sea are unloading beside you. A dockworker calls for room to pass with a crate. The Silver Wake went down far out at sea. You are alive, ashore, and very far from knowing what comes next.</p>
+</blockquote>
+<h2 id="what-survived">What Survived?</h2>
+<p>Ask each present player:</p>
+<blockquote>
+<p>You&#39;re soaked through, exhausted, and sitting among what&#39;s left of your voyage. Before you really take in where you are, there&#39;s one thing your character needs to know survived with them. What do you reach for?</p>
+</blockquote>
+<p>Every reasonable item named survives. This is not a trick: no roll, theft, hidden damage, or later reversal. Class-essential equipment also survives or will be replaced before the expedition. The prompt does not mean every other possession was lost.</p>
+<p>Then ask:</p>
+<blockquote>
+<p>What do the other survivors see when they look at you?</p>
+</blockquote>
+<p>Let the players respond to one another. Record the meaningful possessions for continuity.</p>
+<h2 id="alexs-character">Alex&#39;s Character</h2>
+<p>Alex&#39;s PC survived but is unconscious and stable from mundane wreck injuries. A harbor healer examines him and arranges transport to <strong>The Lantern House</strong>, an infirmary in Spyre.</p>
+<blockquote>
+<p>“He&#39;s alive, but he hasn&#39;t come round. Exposure, the water, a knock to the head—I can&#39;t say yet. We&#39;re taking him to the Lantern House. It&#39;s an infirmary. He&#39;ll be cared for there.”</p>
+</blockquote>
+<p>Tell the players plainly where he is going and that he is receiving care. Keep this beat brief. Do not stage the infirmary, invent a fee or religion, give a definitive diagnosis, or seed a supernatural explanation. He can wake there when Alex joins play.</p>
+<h2 id="first-view-of-spyre">First View of Spyre</h2>
+<p>After introductions and the care beat, shift attention beyond the quay.</p>
+<blockquote>
+<p>Beyond the masts, the city climbs into smoke and mist. Roofs crowd beneath more roofs; bridges cross between towers high above the streets. Old arches carry newer walls, and narrow buildings fit into gaps that hardly seem wide enough for them. Windows glow at heights you keep mistaking for the skyline. Somewhere above it all, bells are ringing.</p>
+</blockquote>
+<p><figure class="media-card" data-asset-id="S01-LOC-DOCKS-01">
+    <img src="assets/01-wide_cinematic_gritty_fantasy_medieval_harbor_ci.png" alt="First View of Spyre" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/01-wide_cinematic_gritty_fantasy_medieval_harbor_ci.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="01">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S01-LOC-DOCKS-01 after the introductions and care beat. The ships shown are ordinary harbor traffic, not The Silver Wake.</em></p>
+<h2 id="free-play">Free Play</h2>
+<p>Ask <strong>“What do you do?”</strong> Allow roughly 10–20 minutes as interest warrants. The PCs may talk, inspect possessions, ask about their companion, thank rescuers, count resources, help with ordinary work, seek practical information, or simply take in the harbor.</p>
+<p>No check is needed to learn that they are in Spyre&#39;s Harbor District, that fishermen rescued them, or that no one here knows why the ship sank. Do not give damage, conditions, an exhaustion subsystem, random equipment-loss rolls, or XP for surviving the wreck.</p>
+<p>If useful, the harbor healer is direct and practical; a rescuing fisherman knows only where he found the survivors; a dock clerk may record names and the ship without inventing legal trouble. These people have work of their own and no secret plot.</p>
+<h2 id="hutch-in-the-background">Hutch in the Background</h2>
+<p>Mention a weathered middle-aged man trading an amiable joke with a dockworker while examining ordinary cargo. He belongs here. He was not waiting for the wreck and is not selecting chosen heroes.</p>
+<p>When interaction reaches a natural lull, he approaches.</p>
+<blockquote>
+<p>“First time in Spyre? Most people arrive a little drier. I&#39;m Hutch.”</p>
+</blockquote>
+<p>End Scene 1. Do not offer the job yet.</p>
+<h2 id="scene-1-mechanics">Scene 1 Mechanics</h2>
+<ul>
+<li>No HP damage from the wreck.</li>
+<li>No exhaustion or trauma subsystem.</li>
+<li>No random loss of equipment.</li>
+<li>One reasonable meaningful possession per present PC survives automatically.</li>
+<li>Class-essential equipment survives or is replaced before Scene 3.</li>
+<li>No unnecessary checks.</li>
+<li>No XP solely for surviving the wreck.</li>
+<li>Do not track light.</li>
+</ul>
+<div class="page-break" aria-hidden="true"><span>◆</span></div>
+
+<h1 id="scene-2--fool--fortune">Scene 2 — Fool &amp; Fortune</h1>
+<h2 id="purpose-1">Purpose</h2>
+<p>Let the PCs meet Hutch as a person before he becomes their broker. Give them warmth, food, and room to recover. Establish the Under Hallow, present a clear job and fair terms, outfit the party, and end as they depart for the warehouse access.</p>
+<h2 id="hutch">Hutch</h2>
+<p>Hutch is human, in his late forties or early fifties, weathered, intelligent, likable, funny, socially somewhat seedy, observant, and extremely well connected. He knows dockworkers, merchants, salvagers, criminals, adventurers, and ordinary residents. His legitimate business is <strong>Fool &amp; Fortune</strong>, a curiosity, salvage, antique, map, tool, jewelry, and nautical-goods shop. His deeper trade is brokering people, information, access, expeditions, salvage, and buyers.</p>
+<p>He is neither sinister nor omniscient. He was conducting his own business before the rescue. He sees people having an extraordinarily bad day.</p>
+<p><figure class="media-card" data-asset-id="S01-NPC-HUTCH-01">
+    <img src="assets/02-Hutch.png" alt="Hutch" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/02-Hutch.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="02">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S01-NPC-HUTCH-01 when Hutch is properly introduced.</em></p>
+<h2 id="the-initial-conversation">The Initial Conversation</h2>
+<p>Resume after Hutch gives his name. He offers a little bread and asks two or three questions suited to what the players have already said:</p>
+<ul>
+<li>First time in Spyre? Where were they headed?</li>
+<li>Do they know anyone here?</li>
+<li>What survived the wreck?</li>
+<li>What are they good at?</li>
+<li>What do they plan to do now?</li>
+</ul>
+<p>Give each player room to answer or decline. Hutch&#39;s private conclusion is simple: <strong>they belong to nobody in Spyre</strong>. They have no local guild, patron, faction, political allegiance, reputation, or Under Hallow affiliation. That makes them vulnerable, but sometimes useful. He does not say this aloud.</p>
+<p>If the moment fits:</p>
+<blockquote>
+<p>“Shipwreck&#39;s a funny thing. Yesterday you had somewhere to be. Today you&#39;ve got nowhere to go.”</p>
+</blockquote>
+<h2 id="invitation-to-the-shop">Invitation to the Shop</h2>
+<p>Hutch offers somewhere warmer to sit.</p>
+<blockquote>
+<p>“You&#39;re welcome to keep sitting here. Dockmaster eventually charges rent, though.”</p>
+</blockquote>
+<p>The fee is a joke. Hospitality is not acceptance of work. If the PCs decline, he gives them the shop name and leaves the invitation open.</p>
+<p>If asked about the shop&#39;s name:</p>
+<blockquote>
+<p>“Depends whether you&#39;re buying or selling.”</p>
+</blockquote>
+<p><figure class="media-card" data-asset-id="S02-LOC-FOOL-FORTUNE-01">
+    <img src="assets/03-fool_and_fortune_curiosity_shop.png" alt="Fool &amp; Fortune" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/03-fool_and_fortune_curiosity_shop.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="03">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S02-LOC-FOOL-FORTUNE-01 when the PCs enter.</em></p>
+<blockquote>
+<p>The door closes, and the harbor becomes a noise on the other side of a wall. Inside, the air is warm. Hutch clears a place to sit without seeming to improve the clutter at all.</p>
+</blockquote>
+<p>Offer bread, a warm drink, cloths for drying, and seats. Let the PCs examine ordinary stock or talk. Do not make each curiosity a hook. Hutch has no answer for the wreck and no new medical information about their companion.</p>
+<h2 id="the-turn-toward-work">The Turn Toward Work</h2>
+<p>When the PCs have had room to settle, Hutch can say:</p>
+<blockquote>
+<p>“Suppose there are two kinds of people in Spyre.”</p>
+<p>“People who&#39;ve got something somebody wants... and people willing to go get it.”</p>
+</blockquote>
+<p>If asked which kind he is:</p>
+<blockquote>
+<p>“Middleman.”</p>
+</blockquote>
+<p>He connects needs and opportunities. He does not threaten people into service.</p>
+<h2 id="introducing-the-under-hallow">Introducing the Under Hallow</h2>
+<blockquote>
+<p><strong>“Spyre goes down almost as far as it goes up.”</strong></p>
+</blockquote>
+<p>If asked what lies below:</p>
+<blockquote>
+<p>“Depends how far down you go.”</p>
+</blockquote>
+<p>If pressed:</p>
+<blockquote>
+<p>“Cellars. Sewers. Old streets. Older streets. Tombs. Temples. Places people forgot. Places people worked very hard to forget.”</p>
+<p>“We call it the Under Hallow.”</p>
+</blockquote>
+<p>Stop there. The PCs will learn by entering it.</p>
+<h2 id="the-tallow-street-job">The Tallow Street Job</h2>
+<p>Recent structural work in a warehouse near the harbor broke through apparent foundation masonry into empty space. Clearing the opening exposed descending stairs and signs of a buried street. Hutch has arranged permission to use the warehouse access; its owner or foreman knows to expect his party.</p>
+<p>Hutch possesses a later copied survey/property record. It names <strong>Tallow Street</strong>, <strong>Vey&#39;s Charts &amp; Surveys</strong>, <strong>The Gilded Kraken</strong>, <strong>Hearth &amp; Thorn</strong>, <strong>Marlowe&#39;s Fine Goods</strong>, <strong>The Broken Compass</strong>, and one unidentified structure. The copy also marks the modern warehouse access and current collapse.</p>
+<p><figure class="media-card" data-asset-id="S02-HANDOUT-TALLOW-MAP-01">
+    <img src="assets/04-tallow_street_map_handout_01.png" alt="Hutch&#39;s Tallow Street Map" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/04-tallow_street_map_handout_01.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="04">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Give the players S02-HANDOUT-TALLOW-MAP-01. Its depth and “third rebuilding” notes are in-world claims, not established history.</em></p>
+<p><strong>Objective:</strong> enter the exposed area, locate Vey&#39;s Charts &amp; Surveys, and recover surviving maps, surveys, journals, route records, property plans, geographic notes, or similar useful cartographic material.</p>
+<p>Hutch believes records may survive. He does not know the street&#39;s present condition, whether every map detail remains accurate, or what now occupies the area. He describes it as a modest exploratory recovery job with real structural and underground risk. Retreat is allowed.</p>
+<blockquote>
+<p>Old information can be more valuable than old gold.</p>
+</blockquote>
+<h2 id="terms">Terms</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Agreement</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Payment</strong></td>
+<td><strong>10 gp per participating PC</strong>, paid if the group returns with at least one meaningful piece of Vey cartographic/survey material. This is one flat job payment, not payment per document.</td>
+</tr>
+<tr>
+<td><strong>Contracted material</strong></td>
+<td>Readable maps, surveys, journals, route records, property plans, or similar Vey geographic material. Historical information need not match modern streets.</td>
+</tr>
+<tr>
+<td><strong>Other salvage</strong></td>
+<td><strong>“What I asked for is mine. What I didn&#39;t ask for is yours.”</strong> Obvious third-party ownership can be clarified rather than treated as permission to steal.</td>
+</tr>
+<tr>
+<td><strong>Empty-handed return</strong></td>
+<td>No recovery fee, debt, or punishment.</td>
+</tr>
+<tr>
+<td><strong>Equipment</strong></td>
+<td>Reasonable used mundane adventuring gear, supplied without deduction, collateral, or repayment trap.</td>
+</tr>
+<tr>
+<td><strong>Timing</strong></td>
+<td>No invented deadline. The PCs may prepare and withdraw from danger.</td>
+</tr>
+</tbody></table></div>
+<p>Allow questions and negotiation. Record any openly agreed change. If they refuse, do not force the adventure through punishment.</p>
+<h2 id="outfitting">Outfitting</h2>
+<p>Review existing sheets and Scene 1 possessions. Hutch can provide essentially any reasonable mundane equipment available during Shadowdark character generation: torches, lanterns and oil, rope, chalk, spikes, crowbars, sacks, backpacks, basic tools, ordinary weapons, armor, shields, waterskins, and similar expedition gear.</p>
+<p>Use normal gear slots and encumbrance. Hutch does not provide magic, luxury goods, exotic treasure, or unlimited consumables. Ask who carries light, fuel, rope, and heavy tools. Do not turn preparation into a shopping minigame.</p>
+<p>End the scene after the PCs freely accept the job, understand the objective and terms, inspect the map, choose equipment, and depart toward the warehouse.</p>
+<div class="page-break" aria-hidden="true"><span>◆</span></div>
+
+<h1 id="scene-3--tallow-street">Scene 3 — Tallow Street</h1>
+<h2 id="purpose-2">Purpose</h2>
+<p>Tallow Street is an urban mini-sandbox built around temptation versus objective. The party may explore in any order. Public life, commerce, a private home, professional work, ecological occupation, and supernatural containment all survive in the same buried neighborhood. Not every mystery belongs to Hutch&#39;s job.</p>
+<p>The core objective is Vey&#39;s Charts &amp; Surveys. No optional building, combat, or secret is required.</p>
+<h2 id="from-harbor-to-under-hallow">From Harbor to Under Hallow</h2>
+<p>The PCs walk a short distance through the active Harbor District to a working warehouse. Its owner or foreman expects them.</p>
+<blockquote>
+<p>“You&#39;re Hutch&#39;s lot? Cellar. Back wall. Don&#39;t touch anything that isn&#39;t already broken.”</p>
+</blockquote>
+<p>The cellar is mundane. Recent structural work breached newer masonry and exposed older stonework with stairs descending <strong>20–30 feet from the cellar</strong>. Workers cleared enough to see through, but have not meaningfully explored.</p>
+<p>The PCs squeeze through and descend. The breach and descent require no checks.</p>
+<blockquote>
+<p>Their light finds cobblestones.</p>
+<p>Buildings stand on both sides of a buried street. Their upper floors vanish into crushed masonry and the foundations of later construction. Doorways open where no surface street remains. Dust softens every edge. There is no wind, rain, sky, or sound from the harbor—only the reach of the party&#39;s light and darkness beyond it.</p>
+</blockquote>
+<p>This is a <strong>buried city street</strong>. It is not a sewer, cavern, or dungeon corridor. Begin real-time light tracking now.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-TALLOW-01">
+    <img src="assets/05-tallow_street_player_view.png" alt="Tallow Street" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/05-tallow_street_player_view.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="05">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-TALLOW-01 at the first street reveal.</em></p>
+<h2 id="street-layout">Street Layout</h2>
+<p>The party enters from the <strong>west</strong>. The <strong>east</strong> end is blocked by the current collapse.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>North side, west → east</th>
+<th>South side, west → east</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>The Gilded Kraken</td>
+<td>Marlowe&#39;s Fine Goods</td>
+</tr>
+<tr>
+<td>Vey&#39;s Charts &amp; Surveys</td>
+<td>No. 17 Residence</td>
+</tr>
+<tr>
+<td>Hearth &amp; Thorn</td>
+<td>Sable House / “S.” on the player map</td>
+</tr>
+<tr>
+<td></td>
+<td>The Broken Compass</td>
+</tr>
+</tbody></table></div>
+<p>The Master Survey is approximately 400 years old relative to the campaign present. It depicts the functioning neighborhood and its continuation, but not the modern warehouse access, western breakthrough, present eastern collapse, or the older stairs behind Vey&#39;s courtyard. Its age does not establish an exact date, era, or calendar origin.</p>
+<h2 id="exploration-order">Exploration Order</h2>
+<p>Present the street and ask where the players go. Do not number the locations aloud. Doors, rooms, clutter, passages, stairs, and chambers may be represented with the available terrain without turning illustrative art into an exact tactical map.</p>
+<h3 id="location-summary">Location Summary</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Table role</th>
+<th>Primary choice</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Gilded Kraken</td>
+<td>Careful searching, warning, environmental danger</td>
+<td>Quiet entry and search versus speed and noise</td>
+</tr>
+<tr>
+<td>Marlowe&#39;s</td>
+<td>Valuable salvage under unstable structure</td>
+<td>Careful extraction versus quick risk</td>
+</tr>
+<tr>
+<td>No. 17</td>
+<td>Human context and neighboring unease</td>
+<td>How far to intrude into a private home</td>
+</tr>
+<tr>
+<td>Sable House</td>
+<td>Optional containment mystery</td>
+<td>Whether to breach a deliberate seal</td>
+</tr>
+<tr>
+<td>Hearth &amp; Thorn</td>
+<td>Useful medicines and Deepthorn</td>
+<td>Take, sample, or leave an unexplained living root</td>
+</tr>
+<tr>
+<td>Broken Compass</td>
+<td>Ragling contact and Vey instrument</td>
+<td>Investigate disturbed stock and a downward-pointing tool</td>
+</tr>
+<tr>
+<td>Vey&#39;s</td>
+<td>Job objective and colony</td>
+<td>Recover records without threatening young</td>
+</tr>
+<tr>
+<td>Rear courtyard</td>
+<td>Map discrepancy and deeper history</td>
+<td>Understand the clue and defer serious excavation</td>
+</tr>
+</tbody></table></div>
+<div class="page-break" aria-hidden="true"><span>◆</span></div>
+
+<h2 id="the-gilded-kraken">The Gilded Kraken</h2>
+<h3 id="immediate-impression">Immediate Impression</h3>
+<p>A former alehouse stands behind filthy windows and a swollen front door. Its hanging sign shows a gilded kraken coiled around a drinking vessel. Inside, dust covers old wood, tables, chairs, cups, crockery, bar fittings, and abandoned bottles. One overturned chair is ordinary disorder, not proof that everyone vanished during dinner.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-KRAKEN-01">
+    <img src="assets/06-gilded_kraken_main_room.png" alt="The Gilded Kraken" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/06-gilded_kraken_main_room.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="06">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-KRAKEN-01 on entry.</em></p>
+<h3 id="key-features-and-discoveries">Key Features and Discoveries</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Find</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Common room</td>
+<td>One dropped old silver coin with an unfamiliar, undefined ruler; approximately <strong>2 gp collector value</strong>.</td>
+</tr>
+<tr>
+<td>Behind the bar</td>
+<td>Three intact wax-sealed bottles of <strong>Kraken Black</strong>, <strong>10 gp each</strong>, <strong>1 slot each</strong>.</td>
+</tr>
+<tr>
+<td>Till</td>
+<td>Corroded old coins worth approximately <strong>5 gp total</strong> to a collector.</td>
+</tr>
+<tr>
+<td>Lower cabinet</td>
+<td>Ruined towel, paper, cork, candle wax, irregular dust trails, and at least one modern material such as blue thread or grain-sack fabric.</td>
+</tr>
+<tr>
+<td>Customer tab slate</td>
+<td>Optional: “Mara — 7”, “Jonn — 3”, “Old Pell — PAY FIRST”. These names establish no modern family link.</td>
+</tr>
+</tbody></table></div>
+<p>The mixed-age cache suggests that small creatures can reach inhabited modern Spyre, but does not expose a usable route.</p>
+<h3 id="cellar">Cellar</h3>
+<p>A rotten floor or stair leads to stone walls, bottle racks, barrels, crates, and an old drain. Telegraph sagging timber, broken boards, and rot before anyone risks a fall. There is <strong>no secret cellar passage</strong>.</p>
+<p>Meaningful exploration automatically reveals words scratched into wall or timber:</p>
+<blockquote>
+<p><strong>DON&#39;T OPEN THE STREET DOOR</strong></p>
+</blockquote>
+<p>The warning refers to Sable House&#39;s street-facing door. Its author, date, and circumstances remain unknown. Give players the words, not the explanation.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-KRAKEN-CELLAR-01">
+    <img src="assets/07-gilded_kraken_cellar.png" alt="Gilded Kraken Cellar" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/07-gilded_kraken_cellar.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="07">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-KRAKEN-CELLAR-01 only when the warning is encountered.</em></p>
+<h3 id="mechanics">Mechanics</h3>
+<ul>
+<li><strong>Force front door:</strong> automatic with proper effort or tool; immediate; <strong>Attention +1</strong>.</li>
+<li><strong>Careful entry:</strong> automatic with suitable tools and time; no Attention increase.</li>
+<li><strong>Quick and quiet:</strong> <strong>DC 12 STR</strong>. On failure, choose more time or loud force; the roll never denies entry.</li>
+<li><strong>Search:</strong> players describe where they look; no generic search roll.</li>
+<li><strong>Rotten stairs:</strong> a reasonable bypass succeeds. Ignoring the warning signs requires <strong>DC 12 DEX</strong>; failure causes <strong>1d4 damage</strong> and <strong>Attention +1</strong>.</li>
+<li><strong>Warning:</strong> found automatically through meaningful cellar exploration; no magical effect or save.</li>
+</ul>
+<p>Kraken Black is mundane rare liquor. Total potential value here is approximately <strong>37 gp</strong>.</p>
+<h2 id="marlowes-fine-goods">Marlowe&#39;s Fine Goods</h2>
+<h3 id="immediate-impression-1">Immediate Impression</h3>
+<p>Decorative tile, brass fixtures, dark counters, display cases, and fine fittings survive beneath an upper floor collapsed diagonally into the shop. A partly buried jewelry case catches the party&#39;s light. The unstable building is the primary danger.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-MARLOWES-01">
+    <img src="assets/08-marlowes_fine_goods.png" alt="Marlowe&#39;s Fine Goods" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/08-marlowes_fine_goods.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="08">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-MARLOWES-01 on entry. Use the listed treasure rather than incidental objects in the art.</em></p>
+<h3 id="jewelry">Jewelry</h3>
+<ul>
+<li>Mundane silver necklace: <strong>15 gp</strong>.</li>
+<li>Finely made mundane hairpin: <strong>10 gp</strong>.</li>
+<li>Old, heavy, worn signet ring with a distinctive but undefined heraldic device: <strong>25 gp apparent antique value</strong>.</li>
+</ul>
+<p>The ring is secretly connected to one of Spyre&#39;s vampire families, but the family, heraldry, and exact provenance are undefined. Give no supernatural aura or easy vampire cue.</p>
+<h3 id="records-and-safe">Records and Safe</h3>
+<p>Ruined business records concern orders, measurements, invoices, fine clothes, jewelry repairs, fabrics, accessories, and alterations. An optional notation reads:</p>
+<blockquote>
+<p><strong>H. Vale — ring resizing. NOT COLLECTED.</strong></p>
+</blockquote>
+<p>H. Vale is unidentified.</p>
+<p>A partly exposed locked floor safe contains obsolete deeds, receipts, correspondence, financial instruments, and property records. One surviving document refers to a Spyre street that still exists but a property number that apparently does not. Keep the address undefined. No matching key is present in the adventure.</p>
+<h3 id="structural-extraction">Structural Extraction</h3>
+<p>Ask how the PCs reach the case. A sensible careful plan with suitable tools and time succeeds: pry access, cut, remove glass, brace debris, or reach around the load.</p>
+<ul>
+<li><strong>Quick extraction without addressing the structure:</strong> <strong>DC 12 DEX</strong>.</li>
+<li><strong>Failure:</strong> the structure shifts; <strong>Attention +1</strong>; then <strong>DC 12 DEX</strong> to avoid <strong>1d6 falling-debris damage</strong>.</li>
+<li>Clearly show worsening instability.</li>
+<li>Only if a PC knowingly continues reckless excavation after that warning: <strong>DC 15 DEX</strong>, failure <strong>2d6 damage</strong>.</li>
+</ul>
+<p>The severe hazard is a new informed choice, never an automatic cascade from the first failure.</p>
+<h3 id="safe-mechanics">Safe Mechanics</h3>
+<ul>
+<li>Pick with <strong>DC 15 DEX</strong> and thieves&#39; tools.</li>
+<li>Proper heavy tools plus time open it automatically and cause <strong>Attention +1</strong>.</li>
+<li>The contents are records, not a cash jackpot.</li>
+</ul>
+<h2 id="no-17-residence">No. 17 Residence</h2>
+<h3 id="immediate-impression-2">Immediate Impression</h3>
+<p>A narrow home stands between Marlowe&#39;s and Sable House. A simple metal <strong>17</strong> marks it. The residence shares a wall with the sealed property. Exploring should feel like entering someone&#39;s abandoned private life, not opening another treasure room.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-SEVENTEEN-01">
+    <img src="assets/09-apt-seventeen-main-floor.png" alt="No. 17" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/09-apt-seventeen-main-floor.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="09">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-SEVENTEEN-01 on entry.</em></p>
+<h3 id="ground-floor">Ground Floor</h3>
+<p>The cramped sitting and dining space holds a hearth, table, two chairs, cupboard, steep stairs, chipped bowl, old pot, repaired chair, broken comb, and child&#39;s wooden toy. The family deliberately but incompletely abandoned the home. Money, silverware, packed clothes, and obvious valuables are gone. Do not stage an interrupted meal.</p>
+<p>The stair frame bears three height marks:</p>
+<blockquote>
+<p><strong>Elsie — 6</strong><br><strong>Elsie — 7</strong><br><strong>Elsie — 8</strong></p>
+</blockquote>
+<p>The marks stop there. They do not establish Elsie&#39;s death.</p>
+<h3 id="elsies-room">Elsie&#39;s Room</h3>
+<p>A tiny bed, chest, crude toy or doll, and drawings survive upstairs. Most show family, the street, the tavern sign, Marlowe&#39;s, boats, and animals. One dark adjoining house appears repeatedly. One drawing reads:</p>
+<blockquote>
+<p><strong>PEOPLE NEXT DOOR</strong></p>
+</blockquote>
+<p>Her bed rests against the shared wall. At child height are scratched shapes resembling copied writing or symbols. They are not readable letters or tally marks. A surviving adult correspondence fragment includes:</p>
+<blockquote>
+<p><strong>“…your complaints concerning the adjoining property…”</strong></p>
+</blockquote>
+<p>It names no ghosts, curse, witch, voice, or monster.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-ELSIE-01">
+    <img src="assets/10-apt-seventeen-elsies_room.png" alt="Elsie&#39;s Room" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/10-apt-seventeen-elsies_room.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="10">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-ELSIE-01 when the room is examined.</em></p>
+<h3 id="ragling-behavior-and-discovery">Ragling Behavior and Discovery</h3>
+<p>Minor Ragling traces downstairs almost vanish near the shared wall and upstairs. At Attention <strong>2+</strong>, a Ragling may watch from the doorway but refuses to cross toward the Sable-adjoining area. Do not roll initiative.</p>
+<p>Meaningful examination automatically reveals the drawings, wall scratches, and correspondence. The home contains effectively <strong>0 gp</strong> in conventional treasure. Do not price Elsie&#39;s toy. Information and human context are the reward.</p>
+<h2 id="sable-house">Sable House</h2>
+<h3 id="optional-exploration">Optional Exploration</h3>
+<p>Sable House is not Hutch&#39;s objective. On his map it is only <strong>Unknown / “S.”</strong> Do not give the players its name merely for seeing the facade. The older structure&#39;s street entrance is deliberately bricked shut; its windows are blocked. Raglings leave no nests or droppings near it and will not willingly enter.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-SABLE-SEALED-01">
+    <img src="assets/11-sable_house_blocked_door.png" alt="Sealed Sable House Entrance" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/11-sable_house_blocked_door.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="11">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-SABLE-SEALED-01 when the facade is inspected.</em></p>
+<p>Entry occurs only if the party chooses to breach the street-facing seal. With proper tools and effort, breaking the masonry takes about <strong>10 minutes</strong>. It requires no roll and is extremely loud: set Ragling Attention directly to <strong>3 — Alarmed</strong>.</p>
+<h3 id="interior">Interior</h3>
+<p>The building contains a former occult and alchemical workspace, personal belongings left inside, improvised containment, skeletal remains, papers, chains, floor markings, and a reliquary. The scene shows deliberate isolation and containment; it does not explain the people or events involved.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-SABLE-INTERIOR-01">
+    <img src="assets/12-sable_house_main_room.png" alt="Sable House Workspace" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/12-sable_house_main_room.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="12">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-SABLE-INTERIOR-01 after voluntary entry.</em></p>
+<p><figure class="media-card" data-asset-id="S03-LOC-SABLE-CONTAINMENT-01">
+    <img src="assets/14-sable_house_containment_room.png" alt="Sable House Containment Room" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/14-sable_house_containment_room.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="14">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-SABLE-CONTAINMENT-01 only when the containment space is encountered. Candles are unlit remnants.</em></p>
+<h3 id="gm-truth">GM Truth</h3>
+<p>Near the end of Tallow Street&#39;s occupation, the occupant was sealed inside with her belongings after the reliquary&#39;s contamination threatened to spread. Her intent, understanding, identity, consent, guilt, victimhood, fate, and exact role remain unresolved. The skeleton and skeletal hand-like relic do not identify her. The reliquary is not a mirror, and its ultimate origin is unknown.</p>
+<h3 id="containment-state">Containment State</h3>
+<p>Track this separately from Ragling Attention.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>State</th>
+<th>Trigger</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>SEALED</strong></td>
+<td>Initial state.</td>
+<td>The house remains isolated.</td>
+</tr>
+<tr>
+<td><strong>DISTURBED</strong></td>
+<td>The street entrance is opened.</td>
+<td>Psychic echoes, temporal impressions, sensory effects, or environmental disturbances may occur without automatic penalties.</td>
+</tr>
+<tr>
+<td><strong>BREACHED</strong></td>
+<td>The reliquary is opened, or a character deliberately damages, removes, cuts, breaks, dismantles, or meaningfully interferes with its obvious containment elements.</td>
+<td>Everyone present perceives a significant change. Opening also triggers the Bound check below.</td>
+</tr>
+</tbody></table></div>
+<p>Containment elements include the established wire, seals, nails, bindings, powders or materials, and other deliberate components around the reliquary. Make their purpose visually apparent before interference becomes consequential.</p>
+<p>Ordinary interaction with the <strong>closed</strong> reliquary does not cause <strong>BREACHED</strong>. A character may touch, pick up, carry, wrap, bag, visually inspect, or transport it while closed. Such contact can still require the DC 12 WIS contamination check below where appropriate.</p>
+<blockquote>
+<p><strong>Closed reliquary:</strong> handling or transporting it may expose a character to contamination, but does not breach containment. Only opening it or deliberately interfering with its containment elements causes <strong>BREACHED</strong>.</p>
+</blockquote>
+<h3 id="contamination">Contamination</h3>
+<p>Simply entering does not curse a character. Handling occult remains, breaking inner containment seals, touching the reliquary, or comparable direct exposure may require <strong>DC 12 WIS</strong>. Handling the closed reliquary requires this check.</p>
+<p>Opening the reliquary uses the <strong>DC 15 WIS</strong> Bound check below instead of an additional DC 12 contact check.</p>
+<p>On failure, roll <strong>1d4</strong>:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>d4</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1 — Whispers</strong></td>
+<td>Disadvantage on the next WIS check.</td>
+</tr>
+<tr>
+<td><strong>2 — Dislocation</strong></td>
+<td>Disadvantage on the next initiative roll.</td>
+</tr>
+<tr>
+<td><strong>3 — Borrowed Memory</strong></td>
+<td>A disturbing or informative fragment from the occupant&#39;s experience; no numerical penalty. Keep within established facts and do not resolve her identity, motives, consent, or fate.</td>
+</tr>
+<tr>
+<td><strong>4 — Marked</strong></td>
+<td>Faint black or copper discoloration at the contact area; no immediate mechanical penalty.</td>
+</tr>
+</tbody></table></div>
+<p>Temporary effects last until a rest outside Sable House where applicable. “Next check/roll” effects apply to the next qualifying roll. Do not invent repeated-exposure stacking.</p>
+<h3 id="reliquary">Reliquary</h3>
+<p><figure class="media-card" data-asset-id="S03-OBJ-RELIQUARY-01">
+    <img src="assets/13-sable_house_reliquary.png" alt="The Reliquary" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/13-sable_house_reliquary.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="13">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-OBJ-RELIQUARY-01 only when the object is encountered. The art does not identify the hand, religion, or curse.</em></p>
+<p>Opening the reliquary changes containment to <strong>BREACHED</strong> and requires <strong>DC 15 WIS</strong>. On failure, the character becomes <strong>Bound to the Reliquary</strong>. Deliberately interfering with containment also causes <strong>BREACHED</strong>, but does not independently impose this DC 15 opening check unless the reliquary is opened.</p>
+<p>Bound does not possess the character, dictate behavior, or remove player agency. The character cannot willingly abandon the reliquary for an extended period without intrusive thoughts, dreams, and a growing desire to recover it. Separation time, escalating penalties, cure, and long-term progression are deliberately undefined.</p>
+<p>Taking the closed reliquary is possible. It is dangerous cargo, not automatic punishment. It has no established GP or XP value. Do not resolve its origin or long-term consequences in this adventure.</p>
+<h2 id="hearth--thorn">Hearth &amp; Thorn</h2>
+<h3 id="immediate-impression-3">Immediate Impression</h3>
+<p>The former apothecary contains shelves, bottles, jars, dried ingredients, work surfaces, storage, and remnants of medical and herbal practice.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-HEARTH-EXTERIOR-01">
+    <img src="assets/15-hearth_and_thorn_external.png" alt="Hearth &amp; Thorn Facade" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/15-hearth_and_thorn_external.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="15">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-HEARTH-EXTERIOR-01 at the facade.</em></p>
+<p><figure class="media-card" data-asset-id="S03-LOC-HEARTH-INTERIOR-01">
+    <img src="assets/16-hearth_and_thorn_internal.png" alt="Hearth &amp; Thorn Interior" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/16-hearth_and_thorn_internal.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="16">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-HEARTH-INTERIOR-01 after entry. The visible plant does not conclusively depict Deepthorn.</em></p>
+<h3 id="medicine-cabinet">Medicine Cabinet</h3>
+<p>Meaningful searching finds the cabinet automatically.</p>
+<ul>
+<li><strong>Pick:</strong> DC 12 DEX with thieves&#39; tools.</li>
+<li><strong>Force:</strong> DC 12 STR; failure destroys one surviving preparation. Decide which bottle is exposed to the risk before rolling.</li>
+</ul>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Preparation</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Redwort Restorative</strong></td>
+<td>Heal <strong>1d6 HP</strong>.</td>
+</tr>
+<tr>
+<td><strong>Viper&#39;s Mercy</strong></td>
+<td>Immediately ends one mundane poison affecting the drinker.</td>
+</tr>
+<tr>
+<td><strong>Clearblood Tonic</strong></td>
+<td>For <strong>1 hour</strong>, advantage on the next CON check against disease or poison.</td>
+</tr>
+<tr>
+<td><strong>Spoiled Black Draught</strong></td>
+<td>Sediment, pressure, odor, and age reveal spoilage without a check. If consumed: <strong>DC 12 CON</strong>; failure <strong>1d6 damage</strong>, success causes sickness but no damage.</td>
+</tr>
+<tr>
+<td><strong>Nightroot Elixir</strong></td>
+<td>For <strong>1 hour</strong>, the drinker alone sees through complete nonmagical darkness to <strong>Near</strong>. It does not illuminate the area, help companions, or defeat magical darkness.</td>
+</tr>
+</tbody></table></div>
+<p>No sale values are established.</p>
+<h3 id="deepthorn">Deepthorn</h3>
+<p>A living root or branch penetrates the buried shop and disappears through masonry. The apothecary notes call it <strong>Deepthorn</strong>.</p>
+<p><strong>GM truth:</strong> Deepthorn is one extension of a much larger supernatural tree elsewhere in the Under Hallow. The parent grew when a wooden stake that killed a vampire took root and became a supernatural tree. The vampire, tree&#39;s location, history, extent, and broader properties remain undefined. Deepthorn is not connected to Marlowe&#39;s ring. Following the root requires a dedicated future excavation; it cannot be done during this expedition.</p>
+<p>Careful harvesting with a suitable blade yields <strong>1d4 viable cuttings</strong>, no check. A fresh cutting chewed by a character grants <strong>10 rounds</strong> of supernatural perception of living creatures within <strong>Near</strong>, even in complete darkness, provided no solid barrier intervenes. This is not ordinary vision, heat vision, aura sight, Detect Magic, or x-ray vision. Untreated cuttings lose this property after approximately <strong>24 hours</strong>. Raglings refuse Deepthorn.</p>
+<h2 id="the-broken-compass">The Broken Compass</h2>
+<h3 id="immediate-impression-4">Immediate Impression</h3>
+<p>This former repair and instrument shop is broad enough for workbenches, cabinets, measuring chains, compasses, survey tools, clockwork, navigation instruments, and repair stations. Most equipment is corroded or damaged. Open drawers, displaced dust, scattered small objects, and crawlspaces show recent Ragling activity.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-COMPASS-01">
+    <img src="assets/17-the_broken_compass.png" alt="The Broken Compass" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/17-the_broken_compass.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="17">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-COMPASS-01 on entering.</em></p>
+<h3 id="possible-first-ragling">Possible First Ragling</h3>
+<p>If the party has not already clearly seen one, a Ragling may watch from beneath or behind furniture: large dark eyes, whiskers, and long foreclaws gripping an edge. It freezes, then bolts through a human-inaccessible gap. Do not roll initiative automatically.</p>
+<p><figure class="media-card" data-asset-id="S03-CRE-RAGLING-01">
+    <img src="assets/18-ragling.png" alt="Ragling Reference" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/18-ragling.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="18">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-CRE-RAGLING-01 only after a Ragling has been clearly seen.</em></p>
+<h3 id="cache">Cache</h3>
+<p>A nest-like cache contains paper, twine, leather, candle wax, cloth, feathers, wood shavings, old coins, a brass key, a small silver chain, buttons, glass, tools, and a piece of modern cloth. The mixture suggests access to inhabited modern Spyre but reveals no human route. The brass key has no assigned lock.</p>
+<p>A thorough search yields <strong>1d6 gp total</strong> in old coins and small valuables. Do not price each button or tool separately.</p>
+<h3 id="veys-survey-instrument">Vey&#39;s Survey Instrument</h3>
+<p>The key find is a high-quality brass survey instrument associated with Vey&#39;s. It resembles a compass but is fundamentally a surveying tool. It persistently indicates downward.</p>
+<p>Repair tags include:</p>
+<blockquote>
+<p><strong>VEY&#39;S — vertical deviation persists.</strong></p>
+<p><strong>Needle continues to indicate downward orientation. Replaced pivot. Rebalanced card. No improvement.</strong></p>
+<p><strong>Tested against three other compasses. No corresponding deviation.</strong></p>
+</blockquote>
+<p>The instrument occupies <strong>1 gear slot</strong> and has no established conventional sale value. Experimentation automatically shows that it does not point north, rotating it does not correct it, and it continually indicates beneath the neighborhood. No INT check.</p>
+<p>Vey calibrated it against a fixed survey benchmark below Tallow Street. It is not mechanically broken, but the exact nature and location of <strong>BM-6 — LOWER DATUM</strong> remain unresolved. It does not point to Sable House, Deepthorn, or the courtyard stairs.</p>
+<h2 id="veys-charts--surveys">Vey&#39;s Charts &amp; Surveys</h2>
+<h3 id="immediate-impression-5">Immediate Impression</h3>
+<p>The business name remains readable. Tracks, droppings, shredded paper, chewed leather, and disturbed doors or windows reveal heavy Ragling use.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-VEY-EXTERIOR-01">
+    <img src="assets/19-Veys_External.png" alt="Vey&#39;s Charts &amp; Surveys" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/19-Veys_External.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="19">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-VEY-EXTERIOR-01 on approach.</em></p>
+<p>Inside are a customer counter, large drafting tables, map cabinets, survey equipment, rolled charts, property records, bound books, and wall maps. Drawers hang open; maps and leather cases have been dragged toward the rear archive.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-VEY-INTERIOR-01">
+    <img src="assets/20-Veys_Internal.png" alt="Vey&#39;s Interior" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/20-Veys_Internal.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="20">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-VEY-INTERIOR-01 on entry. Incidental wall maps do not establish canonical city geography.</em></p>
+<h3 id="the-colony">The Colony</h3>
+<p>The rear archive holds approximately <strong>three normal adults, young, and one mature matron</strong>. The nest contains shredded parchment, canvas, leather, cloth, hair, wax, dried vegetation, map fragments, and some intact records.</p>
+<p>The Raglings protect their young, not Hutch&#39;s maps. Adults begin with warning behavior: chittering, posturing, blocking access, and watching. They do not automatically attack. Three adults plus the matron can be extremely dangerous to fresh PCs; communicate danger and room to retreat.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-VEY-NEST-01">
+    <img src="assets/21-Veys_ragling_nest.png" alt="Ragling Archive" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/21-Veys_ragling_nest.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="21">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-VEY-NEST-01 only when the rear colony is reached.</em></p>
+<p><figure class="media-card" data-asset-id="S03-CRE-MATRON-01">
+    <img src="assets/22-ragling-attacking.png" alt="Ragling Matron" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/22-ragling-attacking.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="22">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-CRE-MATRON-01 only if the matron appears.</em></p>
+<h3 id="nonviolent-solutions">Nonviolent Solutions</h3>
+<ul>
+<li>One full ration thrown or offered away from the nest draws one normal adult away without a check.</li>
+<li>Several rations or an especially attractive pile may manipulate more adults.</li>
+<li>Paper, cloth, leather, wax, string, and similar nesting material can distract them.</li>
+<li>Deepthorn is not suitable bait.</li>
+<li>Careful retrieval, observation, intimidation, retreat, diversion, and driving them off can work.</li>
+<li>Good plans work according to the situation; do not create an Animal Handling minigame.</li>
+<li>Combat remains possible if the PCs attack, corner adults, destroy the nest, or threaten young.</li>
+</ul>
+<p>The matron primarily emerges or escalates when the young face serious danger. Even she may offer retreat before attacking.</p>
+<h3 id="important-records">Important Records</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Record</th>
+<th>Position and slots</th>
+<th>What it reveals</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Tallow Street Master Survey</strong></td>
+<td>Professional record; <strong>1 slot</strong>.</td>
+<td>Functioning historical layout, boundaries, benchmarks, and continuation beyond the accessible section. Omits modern access/collapse and the older courtyard stairs.</td>
+</tr>
+<tr>
+<td><strong>Vey&#39;s Survey Ledger</strong></td>
+<td>Thick field book; <strong>1 slot</strong>.</td>
+<td>Measurements, boundaries, corrections, benchmarks, and <strong>BM-6 — LOWER DATUM</strong> context.</td>
+</tr>
+<tr>
+<td><strong>District Map Case</strong></td>
+<td>Partly incorporated into or near the nest; <strong>2 slots</strong>.</td>
+<td>Six to ten rolled maps of nearby buried streets and structures. Those locations are not designed here.</td>
+</tr>
+<tr>
+<td><strong>Vey&#39;s Field Journal</strong></td>
+<td>Dangerously close to the young; small.</td>
+<td>Observations, discrepancies, jobs, a BM-6 reference, and one copy of the ancient symbol followed by <strong>?</strong>.</td>
+</tr>
+</tbody></table></div>
+<p>The less disturbed office contains a desk, survey journals, correspondence, property records, and map storage, but the Field Journal specifically lies near the young. Do not require all four records and do not reduce retrieval to a single DEX roll.</p>
+<p>Reading costs time, not an INT check. Basic contents are automatic. The Master Survey reveals the historical layout and visibly includes the BM-6 benchmark label; the Survey Ledger provides its useful context. Records plus the instrument establish their connection automatically. The Field Journal&#39;s symbol and question mark are obvious on examination.</p>
+<p><figure class="media-card" data-asset-id="S03-HANDOUT-VEY-SURVEY-01">
+    <img src="assets/23-tallow_street_survey.png" alt="Tallow Street Master Survey" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/23-tallow_street_survey.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="23">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Give the players S03-HANDOUT-VEY-SURVEY-01 when recovered and examined. The Sable property remains unnamed, and BM-6 remains unexplained.</em></p>
+<h3 id="orin-vey">Orin Vey</h3>
+<p>The surviving work presents <strong>Orin Vey</strong> as a meticulous, somewhat obsessive professional interested in discrepancies between records and the physical city. Nothing here establishes him as a major historical figure.</p>
+<blockquote>
+<p><strong>“A map is either correct or unfinished.”</strong></p>
+</blockquote>
+<p>Hutch&#39;s request remains broad. Any meaningful Vey geographic material completes the job.</p>
+<blockquote>
+<p>“Paper&#39;s heavy. Use your judgment.”</p>
+</blockquote>
+<h2 id="rear-courtyard-and-older-stairs">Rear Courtyard and Older Stairs</h2>
+<h3 id="the-buried-courtyard">The Buried Courtyard</h3>
+<p>A rear door from Vey&#39;s opens into a private courtyard approximately <strong>25–30 feet across</strong>, built over for centuries. It has no sky or daylight. Portable light reveals stone paving, drainage, cistern or rain-barrel remnants, old planting areas, masonry, and debris. Raglings use parts of the courtyard but do not descend the older stairs.</p>
+<p><figure class="media-card" data-asset-id="S03-LOC-VEY-COURTYARD-01">
+    <img src="assets/24-Veys_Courtyard.png" alt="Vey&#39;s Buried Courtyard" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/24-Veys_Courtyard.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="24">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-LOC-VEY-COURTYARD-01 after the party takes the rear door. Surviving greenery establishes no magical explanation.</em></p>
+<h3 id="the-discrepancy">The Discrepancy</h3>
+<p>Vey&#39;s survey shows a <strong>solid rear boundary with no passage or stairs</strong>. The physical wall incorporates larger, older dressed stones. Settling and damage expose an opening and stairs that descend about <strong>15 feet</strong>, reach a small landing, and turn.</p>
+<p>Comparing the survey with the courtyard automatically reveals the discrepancy. Deliberate inspection also reveals the older masonry without a check. Clearing loose material takes several minutes and no Attention; hammering or demolition follows the normal loud-action rules.</p>
+<p>Vey went down these stairs and copied the symbol from the landing into his journal. He then drew a wall where the stairs should have appeared. His omission was almost certainly deliberate. <strong>Why remains unknown.</strong></p>
+<h3 id="the-symbol">The Symbol</h3>
+<p>When the landing is illuminated, the carved geometric symbol is automatically visible. A copy in Vey&#39;s Field Journal bears a question mark. The match is automatic; no INT check.</p>
+<p><figure class="media-card" data-asset-id="S03-HANDOUT-SYMBOL-01">
+    <img src="assets/25-Veys_Symbol.png" alt="Ancient Carved Symbol" loading="lazy">
+    <div class="media-controls">
+      <span class="safe-badge">Player-safe at this reveal</span>
+      <button class="media-button" type="button" data-enlarge-image="assets/25-Veys_Symbol.png">ENLARGE</button>
+      <button class="media-button player-button" type="button" data-player-token="25">SHOW PLAYERS</button>
+    </div>
+  </figure></p>
+<p><em>Display S03-HANDOUT-SYMBOL-01 when the landing is illuminated. Its meaning remains unknown.</em></p>
+<p>The symbol&#39;s language, builders, culture, meaning, and magic or lack thereof are unresolved. Do not attribute it to any known historical people.</p>
+<h3 id="the-blocked-route">The Blocked Route</h3>
+<p>Beyond the landing&#39;s turn, centuries of collapse choke the route. It cannot be solved with a high-DC roll. Safe progress requires picks, shovels, pry bars, supports, substantial time, and possibly additional labor. Faint airflow may be present, but no source or destination is defined.</p>
+<p>The survey instrument continues indicating toward BM-6, <strong>not down these stairs</strong>. These are separate mysteries.</p>
+<h2 id="leaving-tallow-street">Leaving Tallow Street</h2>
+<p>The party may return once it has meaningful Vey material. Record:</p>
+<ul>
+<li>Buildings entered and left untouched.</li>
+<li>Records and salvage taken or abandoned.</li>
+<li>Ragling encounters and the condition of the colony and young.</li>
+<li>Current Attention.</li>
+<li>Whether Sable House remains Sealed, is Disturbed, or is Breached.</li>
+<li>Whether the reliquary was left, taken closed, or opened.</li>
+<li>Which PCs encountered Deepthorn, BM-6, the symbol, or the courtyard stairs.</li>
+<li>What the players choose to disclose to Hutch.</li>
+</ul>
+<p>The party returns through the warehouse and the ordinary Harbor District. Stop tracking expedition light when they leave Tallow Street.</p>
+<div class="page-break" aria-hidden="true"><span>◆</span></div>
+
+<h1 id="scene-4--return-to-fool--fortune">Scene 4 — Return to Fool &amp; Fortune</h1>
+<h2 id="purpose-3">Purpose</h2>
+<p>Resolve the job, let the players explain what mattered to them, pay them, settle salvage, and offer practical lodging. Do not assign another quest.</p>
+<p>Fool &amp; Fortune is warm, inhabited, and illuminated. Hutch is behind the counter doing ordinary work. Look at the characters&#39; actual dust, injuries, torn clothing, and overloaded packs before speaking.</p>
+<blockquote>
+<p>“Well. Look at that.”</p>
+<p>“Everybody came back.”</p>
+<p>“Come on, then. Put down whatever you&#39;ve decided is worth carrying.”</p>
+</blockquote>
+<p>Do not begin with “Did you get the maps?” Hutch was not certain they would return.</p>
+<h2 id="player-led-debrief">Player-Led Debrief</h2>
+<p>Ask:</p>
+<blockquote>
+<p><strong>“What do you show Hutch first?”</strong></p>
+</blockquote>
+<p>React only to what the PCs recovered, noticed, and choose to disclose. Hutch can ask where an object came from and what they left behind. He is knowledgeable, not omniscient.</p>
+<h2 id="conditional-reactions">Conditional Reactions</h2>
+<p>Use only rows supported by what the PCs recovered and choose to disclose. Hutch may ask where something came from, but he does not know what they withheld.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Disclosure</th>
+<th>Hutch&#39;s response</th>
+<th>Optional line</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Master Survey</strong></td>
+<td>Recognizes professional work, compares it with his copy, and sees that the historical street continued beyond the accessible section.</td>
+<td>“Well, I&#39;ll be damned. This is what I was hoping existed.”</td>
+</tr>
+<tr>
+<td><strong>Survey Ledger</strong></td>
+<td>Recognizes measurements, boundaries, benchmarks, corrections, and work beyond Tallow Street.</td>
+<td>“Oh, this is better. One old map tells you where something was. A surveyor&#39;s book tells you where everything around it was.”</td>
+</tr>
+<tr>
+<td><strong>District Map Case</strong></td>
+<td>Becomes focused, opens several maps, and asks where they were found. He needs time to study them; this is not another assignment.</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Field Journal</strong></td>
+<td>Values it more if the PCs also explain BM-6, the instrument, or the matching symbol. He does not automatically value it above the maps.</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Survey instrument</strong></td>
+<td>Lets the PCs explain that it points down. It remains their salvage unless they negotiate otherwise.</td>
+<td>“Compass?” then, “That&#39;s inconvenient.”</td>
+</tr>
+<tr>
+<td><strong>BM-6 — LOWER DATUM</strong></td>
+<td>Understands that Vey surveyed something below known street level. He does not know what BM-6 is.</td>
+<td>“Good. Means I don&#39;t have to tell you you&#39;re not going back tonight.”</td>
+</tr>
+<tr>
+<td><strong>Raglings</strong></td>
+<td>Knows they are common Under Hallow scavengers and collectors, dangerous when cornered and fiercely protective of young. He knows nothing about this colony unless told and does not moralize if the PCs fought.</td>
+<td>“Then you&#39;re lucky you didn&#39;t make a war of it.”</td>
+</tr>
+<tr>
+<td><strong>Deepthorn</strong></td>
+<td>Does not recognize a cutting or know its origin. If the PCs supply the name, he accepts it.</td>
+<td>“That&#39;s alive? Four hundred years underground?” / “Then Deepthorn it is.”</td>
+</tr>
+<tr>
+<td><strong>Sable House</strong></td>
+<td>Treats the bricked building and the Gilded Kraken warning as evidence of containment, not a solved history.</td>
+<td>“Probably wasn&#39;t bricked up to keep people out.”</td>
+</tr>
+<tr>
+<td><strong>Reliquary left behind</strong></td>
+<td>Approves, based only on the evidence of deliberate sealing.</td>
+<td>“Good.” / “Because somebody sealed a house around the damned thing.”</td>
+</tr>
+<tr>
+<td><strong>Reliquary brought back closed</strong></td>
+<td>Does not touch it and wants it off his counter. He knows no containment procedure.</td>
+<td>“Tell me you didn&#39;t open that.” / “All right. That&#39;s something. We&#39;re going to need somewhere better than my counter for that.”</td>
+</tr>
+<tr>
+<td><strong>Reliquary opened</strong></td>
+<td>Becomes completely serious. Do not invent a cure, containment procedure, or immediate follow-up adventure.</td>
+<td>“What happened?”</td>
+</tr>
+<tr>
+<td><strong>Necklace or hairpin</strong></td>
+<td>Gives an ordinary appraisal.</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Signet ring</strong></td>
+<td>Asks where it came from, advises keeping it, and identifies no family, heraldry, or supernatural property.</td>
+<td>“Where&#39;d you find this?” / “Keep it.” / “Because I don&#39;t know enough about it to tell you what it&#39;s worth.”</td>
+</tr>
+<tr>
+<td><strong>Courtyard stairs</strong></td>
+<td>Reconstructs Vey&#39;s deliberate omission from the evidence. He does not know why the stairs were hidden or where they lead.</td>
+<td>“Surveyor mapped his own courtyard. Found stairs underneath it. Went down them. Then drew a wall where they were. That&#39;s not an error.”</td>
+</tr>
+<tr>
+<td><strong>Ancient symbol</strong></td>
+<td>Does not know its meaning or builders.</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>Instrument does not point toward the stairs</strong></td>
+<td>Treats BM-6 and the stairs as distinct mysteries, not two accessible routes.</td>
+<td>“So you&#39;ve found two ways down.”</td>
+</tr>
+</tbody></table></div>
+<h2 id="payment-and-salvage">Payment and Salvage</h2>
+<p>If the party returns with meaningful Vey cartographic material, Hutch pays exactly <strong>10 gp per participating PC</strong>.</p>
+<blockquote>
+<p>“You did what I asked. Ten each.”</p>
+</blockquote>
+<p>No technicalities, renegotiation, or separate payment per record.</p>
+<blockquote>
+<p>“What I asked for is mine. What I didn&#39;t ask for is yours.”</p>
+</blockquote>
+<p>Hutch does not claim Kraken Black, Marlowe&#39;s jewelry, old coins, medicines, Deepthorn, Ragling-cache valuables, unrelated salvage, or the instrument unless the PCs negotiate. He may later help find buyers among collectors, antiquarians, merchants, and questionable specialists. Do not define a brokerage percentage.</p>
+<p>If they return without meaningful Vey material, do not pay the recovery fee. Ask what happened and preserve the relationship without punishment.</p>
+<h2 id="the-crooked-nail">The Crooked Nail</h2>
+<p>If the PCs need lodging, Hutch recommends a nearby Harbor District inn and tavern, roughly one or two minutes from Fool &amp; Fortune.</p>
+<blockquote>
+<p>“Two doors down, left at the cooper&#39;s. Crooked Nail. Tell Mara Hutch sent you.”</p>
+<p>“Actually, don&#39;t. She&#39;ll charge you more.”</p>
+</blockquote>
+<p>The Crooked Nail is old, slightly crooked, low-ceilinged, worn, clean enough, inexpensive, and active downstairs in the evening. It serves dockworkers, sailors, warehouse workers, tradespeople, modest travelers, and locals. It is not an adventurers&#39; guild and has no quest board or contrived tavern plot.</p>
+<p>Mara is the proprietor. Do not connect her to the ancient Gilded Kraken “Mara — 7” entry or invent a larger role.</p>
+<ul>
+<li><strong>Rooms:</strong> 1 gp per room per night.</li>
+<li><strong>Capacity:</strong> two PCs comfortably share one room.</li>
+<li><strong>Food:</strong> a simple hot meal is included or inexpensive enough to avoid detailed first-night accounting.</li>
+</ul>
+<p>The inn is a practical place to sleep, not a declared campaign base. Let attachment form through play.</p>
+<h2 id="session-end">Session End</h2>
+<p>Allow the PCs to get paid, sell or store ordinary salvage if appropriate, ask questions, arrange lodging, eat, drink, sit somewhere warm, and process what happened. Assign no new quest.</p>
+<p>If the moment fits, Hutch may say:</p>
+<blockquote>
+<p>“This morning you didn&#39;t have a copper between you or a dry pair of boots.”</p>
+</blockquote>
+<p>He taps Vey&#39;s map.</p>
+<blockquote>
+<p>“Now you know something about Spyre that almost nobody else does.”</p>
+<p>“That&#39;s how it starts.”</p>
+</blockquote>
+<p>Do not force the line if play produces a better ending. The PCs finish alive, dry, fed, paid if successful, connected to someone in Spyre, and beginning to understand what it means to delve beneath the city.</p>
+<div class="page-break" aria-hidden="true"><span>◆</span></div>
+
+<h1 id="appendix-a--hutch-quick-reference">Appendix A — Hutch Quick Reference</h1>
+<h2 id="at-a-glance">At a Glance</h2>
+<ul>
+<li>Human; late forties to early fifties.</li>
+<li>Weathered, intelligent, likable, funny, observant, socially somewhat seedy.</li>
+<li>Legitimate curiosity, salvage, and antiquities dealer.</li>
+<li>Broker of information, people, access, maps, crews, jobs, and buyers.</li>
+<li>Well connected, but neither sinister nor omniscient.</li>
+<li>Keeps his agreements.</li>
+<li>Begins as a useful local broker and can become a trusted contact; he does not own the PCs&#39; choices.</li>
+</ul>
+<h2 id="knows">Knows</h2>
+<ul>
+<li>Spyre&#39;s working harbor and ordinary people.</li>
+<li>Practical Under Hallow risks.</li>
+<li>Basic Ragling behavior.</li>
+<li>His own job, access agreement, and salvage terms.</li>
+<li>Whatever the PCs tell or show him.</li>
+</ul>
+<h2 id="does-not-know">Does Not Know</h2>
+<ul>
+<li>Why The Silver Wake sank.</li>
+<li>What BM-6 truly is.</li>
+<li>What the ancient symbol means.</li>
+<li>Which vampire family is tied to the ring.</li>
+<li>Deepthorn&#39;s vampiric origin.</li>
+<li>Sable House&#39;s full history or a reliquary cure.</li>
+<li>The destination of Vey&#39;s omitted stairs.</li>
+</ul>
+<h2 id="essential-lines">Essential Lines</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Use</th>
+<th>Line</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Introduction</td>
+<td>“First time in Spyre? Most people arrive a little drier. I&#39;m Hutch.”</td>
+</tr>
+<tr>
+<td>Stranded travelers</td>
+<td>“Shipwreck&#39;s a funny thing. Yesterday you had somewhere to be. Today you&#39;ve got nowhere to go.”</td>
+</tr>
+<tr>
+<td>Shop&#39;s name</td>
+<td>“Depends whether you&#39;re buying or selling.”</td>
+</tr>
+<tr>
+<td>Under Hallow</td>
+<td>“Spyre goes down almost as far as it goes up.”</td>
+</tr>
+<tr>
+<td>Role</td>
+<td>“Middleman.”</td>
+</tr>
+<tr>
+<td>Salvage</td>
+<td>“What I asked for is mine. What I didn&#39;t ask for is yours.”</td>
+</tr>
+<tr>
+<td>Return</td>
+<td>“Well. Look at that. Everybody came back.”</td>
+</tr>
+<tr>
+<td>Debrief</td>
+<td>“What do you show Hutch first?”</td>
+</tr>
+<tr>
+<td>Lodging</td>
+<td>“Tell Mara Hutch sent you. Actually, don&#39;t. She&#39;ll charge you more.”</td>
+</tr>
+</tbody></table></div>
+<h1 id="appendix-b--ragling-attention-tracker">Appendix B — Ragling Attention Tracker</h1>
+<p>Current state:</p>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>0 — Unaware:</strong> evidence only; colony unaware.</li>
+<li><input disabled="" type="checkbox"> <strong>1 — Curious:</strong> scratching, watching, one adult investigates.</li>
+<li><input disabled="" type="checkbox"> <strong>2 — Following:</strong> Raglings shadow the party; adults guard the nest approach.</li>
+<li><input disabled="" type="checkbox"> <strong>3 — Alarmed:</strong> colony expects danger; adults are defensively positioned.</li>
+</ul>
+<p>Raise by <strong>1</strong> for loud force, smashing, collapse, sustained hammering, repeated shouting, or combat. Ordinary movement, conversation, doors, and searching add nothing. Extended quiet exploration may reduce by <strong>1</strong>. Breaching Sable House sets it directly to <strong>3</strong>. It never automatically starts combat.</p>
+<h1 id="appendix-c--ragling-statistics">Appendix C — Ragling Statistics</h1>
+<h2 id="ragling">Ragling</h2>
+<p><strong>AC</strong> 12; <strong>HP</strong> 4; <strong>MV</strong> near (climb)<br><strong>Attack</strong> claw/bite +2 (1d4)<br><strong>Abilities</strong> S -2, D +2, C +0, I -3, W +1, Ch -3<br><strong>Alignment</strong> N</p>
+<p><strong>Scuttle:</strong> Moves through spaces too small for humans and climbs ordinary ruined surfaces without a check.<br><strong>Skittish:</strong> At half HP or less, flees unless defending young.<br><strong>Collector:</strong> Strongly attracted to food and useful nesting material.</p>
+<h2 id="ragling-matron">Ragling Matron</h2>
+<p><strong>AC</strong> 13; <strong>HP</strong> 16; <strong>MV</strong> near (climb)<br><strong>Attacks</strong> 2 claws +3 (1d4 each)<br><strong>Abilities</strong> S +2, D +2, C +2, I -3, W +2, Ch -3<br><strong>Alignment</strong> N</p>
+<p><strong>Protective Fury:</strong> While defending young, ordinary intimidation does not drive her away.<br><strong>Pounce:</strong> If she moves at least Close before attacking, her first claw deals +1d4 damage on a hit.<br><strong>Retreat Offered:</strong> She does not pursue creatures clearly retreating from the nest unless they carry or threaten a young.</p>
+<h1 id="appendix-d--treasure-and-rewards">Appendix D — Treasure and Rewards</h1>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Find</th>
+<th>Value / slots</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Gilded Kraken</td>
+<td>3 Kraken Black bottles</td>
+<td>10 gp each; 1 slot each</td>
+</tr>
+<tr>
+<td>Gilded Kraken</td>
+<td>Till coins</td>
+<td>About 5 gp total</td>
+</tr>
+<tr>
+<td>Gilded Kraken</td>
+<td>Dropped old silver coin</td>
+<td>About 2 gp collector value</td>
+</tr>
+<tr>
+<td>Marlowe&#39;s</td>
+<td>Silver necklace</td>
+<td>15 gp</td>
+</tr>
+<tr>
+<td>Marlowe&#39;s</td>
+<td>Fine hairpin</td>
+<td>10 gp</td>
+</tr>
+<tr>
+<td>Marlowe&#39;s</td>
+<td>Signet ring</td>
+<td>25 gp apparent ordinary value; provenance unresolved</td>
+</tr>
+<tr>
+<td>Broken Compass</td>
+<td>Mixed cache</td>
+<td>1d6 gp total</td>
+</tr>
+<tr>
+<td>Hutch</td>
+<td>Successful recovery</td>
+<td>10 gp per participating PC</td>
+</tr>
+</tbody></table></div>
+<p>For four PCs, extensive exploration can produce approximately <strong>128–133 gp</strong> including Hutch&#39;s payment. This assumes successful risky recovery, carrying all bottles, and finding appropriate buyers. It is potential value, not automatic cash.</p>
+<p>No established GP or XP value applies to the reliquary, Deepthorn, BM-6 information, the ancient symbol, Vey&#39;s district maps, or unresolved provenance. Apothecary preparations have utility rather than established sale prices.</p>
+<h1 id="appendix-e--hearth--thorn-consumables">Appendix E — Hearth &amp; Thorn Consumables</h1>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Redwort Restorative</td>
+<td>Heal 1d6 HP.</td>
+</tr>
+<tr>
+<td>Viper&#39;s Mercy</td>
+<td>End one mundane poison immediately.</td>
+</tr>
+<tr>
+<td>Clearblood Tonic</td>
+<td>For 1 hour, advantage on the next CON check against disease or poison.</td>
+</tr>
+<tr>
+<td>Spoiled Black Draught</td>
+<td>DC 12 CON if consumed; failure 1d6 damage, success sickening without damage.</td>
+</tr>
+<tr>
+<td>Nightroot Elixir</td>
+<td>For 1 hour, drinker sees through nonmagical darkness to Near.</td>
+</tr>
+<tr>
+<td>Deepthorn Cutting</td>
+<td>For 10 rounds, perceive living creatures within Near through darkness, but not through solid barriers. Expires about 24 hours after cutting.</td>
+</tr>
+</tbody></table></div>
+<h1 id="appendix-f--tallow-street-quick-reference">Appendix F — Tallow Street Quick Reference</h1>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Essential clue or choice</th>
+<th>Risk</th>
+<th>Treasure / objective</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Gilded Kraken</td>
+<td>“DON&#39;T OPEN THE STREET DOOR”; modern Ragling material</td>
+<td>Entry noise; rotten cellar stairs</td>
+<td>37 gp potential</td>
+</tr>
+<tr>
+<td>Marlowe&#39;s</td>
+<td>H. Vale note; impossible property number; unidentified ring</td>
+<td>Structural extraction</td>
+<td>50 gp apparent value</td>
+</tr>
+<tr>
+<td>No. 17</td>
+<td>Elsie&#39;s marks, PEOPLE NEXT DOOR, shared-wall scratches, complaint</td>
+<td>Time and intrusion</td>
+<td>No meaningful GP</td>
+</tr>
+<tr>
+<td>Sable House</td>
+<td>Deliberate seal, containment, reliquary</td>
+<td>Attention 3; contamination; Bound</td>
+<td>No established GP/XP</td>
+</tr>
+<tr>
+<td>Hearth &amp; Thorn</td>
+<td>Medicines and Deepthorn</td>
+<td>Spoiled draught; forced cabinet</td>
+<td>Five preparations; 1d4 cuttings</td>
+</tr>
+<tr>
+<td>Broken Compass</td>
+<td>Ragling cache, Vey instrument, repair notes</td>
+<td>Possible Ragling contact</td>
+<td>1d6 gp; instrument 1 slot</td>
+</tr>
+<tr>
+<td>Vey&#39;s</td>
+<td>Recover cartographic material; protect or confront colony</td>
+<td>Three adults, young, matron</td>
+<td>Job objective; records 1/1/2/small slots</td>
+</tr>
+<tr>
+<td>Rear courtyard</td>
+<td>Survey wall contradicts real stairs; matching symbol</td>
+<td>Route requires later excavation</td>
+<td>Information only</td>
+</tr>
+</tbody></table></div>
+<h2 id="geography">Geography</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>North, west → east</th>
+<th>South, west → east</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Gilded Kraken</td>
+<td>Marlowe&#39;s Fine Goods</td>
+</tr>
+<tr>
+<td>Vey&#39;s Charts &amp; Surveys</td>
+<td>No. 17</td>
+</tr>
+<tr>
+<td>Hearth &amp; Thorn</td>
+<td>Sable House / “S.”</td>
+</tr>
+<tr>
+<td></td>
+<td>Broken Compass</td>
+</tr>
+</tbody></table></div>
+<p><strong>West:</strong> warehouse access. <strong>East:</strong> current collapse.</p>
+<h1 id="appendix-g--player-handout-index">Appendix G — Player Handout Index</h1>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Trigger</th>
+<th>ID</th>
+<th>File</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hutch explains the job</td>
+<td>S02-HANDOUT-TALLOW-MAP-01</td>
+<td><a href="assets/04-tallow_street_map_handout_01.png">04-tallow_street_map_handout_01.png</a></td>
+</tr>
+<tr>
+<td>Master Survey recovered and examined</td>
+<td>S03-HANDOUT-VEY-SURVEY-01</td>
+<td><a href="assets/23-tallow_street_survey.png">23-tallow_street_survey.png</a></td>
+</tr>
+<tr>
+<td>Courtyard landing illuminated</td>
+<td>S03-HANDOUT-SYMBOL-01</td>
+<td><a href="assets/25-Veys_Symbol.png">25-Veys_Symbol.png</a></td>
+</tr>
+</tbody></table></div>
+<p>The Hutch map&#39;s marginal depth and rebuilding notes are in-world claims. The Master Survey does not define a calendar or the meaning of BM-6. The symbol&#39;s interpretation remains unknown.</p>
+<h1 id="appendix-h--media-and-tv-display-reference">Appendix H — Media and TV Display Reference</h1>
+<p>Display only at the stated discovery cue. Do not run an advance slideshow of unrevealed locations.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Cue</th>
+<th>Asset ID</th>
+<th>File</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>First city view after introductions/care</td>
+<td>S01-LOC-DOCKS-01</td>
+<td><a href="assets/01-wide_cinematic_gritty_fantasy_medieval_harbor_ci.png">Spyre harbor</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Hutch properly introduced</td>
+<td>S01-NPC-HUTCH-01</td>
+<td><a href="assets/02-Hutch.png">Hutch</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Enter Fool &amp; Fortune</td>
+<td>S02-LOC-FOOL-FORTUNE-01</td>
+<td><a href="assets/03-fool_and_fortune_curiosity_shop.png">Fool &amp; Fortune</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Job map revealed</td>
+<td>S02-HANDOUT-TALLOW-MAP-01</td>
+<td><a href="assets/04-tallow_street_map_handout_01.png">Hutch map</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Reach buried street</td>
+<td>S03-LOC-TALLOW-01</td>
+<td><a href="assets/05-tallow_street_player_view.png">Tallow Street</a></td>
+<td>Ready; dark storefronts</td>
+</tr>
+<tr>
+<td>Enter Gilded Kraken</td>
+<td>S03-LOC-KRAKEN-01</td>
+<td><a href="assets/06-gilded_kraken_main_room.png">Kraken main room</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Find cellar warning</td>
+<td>S03-LOC-KRAKEN-CELLAR-01</td>
+<td><a href="assets/07-gilded_kraken_cellar.png">Kraken cellar</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Enter Marlowe&#39;s</td>
+<td>S03-LOC-MARLOWES-01</td>
+<td><a href="assets/08-marlowes_fine_goods.png">Marlowe&#39;s</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Enter No. 17</td>
+<td>S03-LOC-SEVENTEEN-01</td>
+<td><a href="assets/09-apt-seventeen-main-floor.png">No. 17</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Examine Elsie&#39;s room</td>
+<td>S03-LOC-ELSIE-01</td>
+<td><a href="assets/10-apt-seventeen-elsies_room.png">Elsie&#39;s room</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Inspect Sable facade</td>
+<td>S03-LOC-SABLE-SEALED-01</td>
+<td><a href="assets/11-sable_house_blocked_door.png">Sealed entrance</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Enter Sable House</td>
+<td>S03-LOC-SABLE-INTERIOR-01</td>
+<td><a href="assets/12-sable_house_main_room.png">Sable interior</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Find containment room</td>
+<td>S03-LOC-SABLE-CONTAINMENT-01</td>
+<td><a href="assets/14-sable_house_containment_room.png">Containment room</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Encounter reliquary</td>
+<td>S03-OBJ-RELIQUARY-01</td>
+<td><a href="assets/13-sable_house_reliquary.png">Reliquary</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Reach Hearth &amp; Thorn</td>
+<td>S03-LOC-HEARTH-EXTERIOR-01</td>
+<td><a href="assets/15-hearth_and_thorn_external.png">Hearth exterior</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Enter Hearth &amp; Thorn</td>
+<td>S03-LOC-HEARTH-INTERIOR-01</td>
+<td><a href="assets/16-hearth_and_thorn_internal.png">Hearth interior</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Enter Broken Compass</td>
+<td>S03-LOC-COMPASS-01</td>
+<td><a href="assets/17-the_broken_compass.png">Broken Compass</a></td>
+<td>Ready; warm interior lighting</td>
+</tr>
+<tr>
+<td>First clear Ragling sighting</td>
+<td>S03-CRE-RAGLING-01</td>
+<td><a href="assets/18-ragling.png">Ragling</a></td>
+<td>Reveal only after a clear sighting</td>
+</tr>
+<tr>
+<td>Approach Vey&#39;s</td>
+<td>S03-LOC-VEY-EXTERIOR-01</td>
+<td><a href="assets/19-Veys_External.png">Vey exterior</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Enter Vey&#39;s</td>
+<td>S03-LOC-VEY-INTERIOR-01</td>
+<td><a href="assets/20-Veys_Internal.png">Vey interior</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Reach colony</td>
+<td>S03-LOC-VEY-NEST-01</td>
+<td><a href="assets/21-Veys_ragling_nest.png">Ragling archive</a></td>
+<td>Ready</td>
+</tr>
+<tr>
+<td>Matron appears</td>
+<td>S03-CRE-MATRON-01</td>
+<td><a href="assets/22-ragling-attacking.png">Ragling matron</a></td>
+<td>Reveal only if she appears</td>
+</tr>
+<tr>
+<td>Reach rear courtyard</td>
+<td>S03-LOC-VEY-COURTYARD-01</td>
+<td><a href="assets/24-Veys_Courtyard.png">Buried courtyard</a></td>
+<td>Ready</td>
+</tr>
+</tbody></table></div>
+<h2 id="audio">Audio</h2>
+<ul>
+<li><strong>Scene 1:</strong> S01-AMB-HARBOR-01 — <code>audio/Medieval Harbor Ambience.mp3</code>.</li>
+<li><strong>Scene 2:</strong> S02-AMB-FOOL-FORTUNE-01 — <code>audio/Magical Shop Ambience.mp3</code>.</li>
+<li><strong>Scene 3:</strong> S03-AMB-TALLOW-01 — <code>audio/Tallow_Street.mp3</code>, optional and still unaudited. Do not use it if it implies rain, wind, gulls, daylight, or inhabitants.</li>
+</ul>
+<h2 id="unassigned-art">Unassigned Art</h2>
+<ul>
+<li>No dedicated Deepthorn root or room image exists.</li>
+<li>No Crooked Nail exterior, interior, or Mara portrait is assigned.</li>
+</ul>
+<p>These gaps do not prevent running the adventure. Do not invent filenames or substitute unapproved art.</p>
+<div class="page-break" aria-hidden="true"><span>◆</span></div>
+
+<h1 id="gm-end-state-checklist">GM End-State Checklist</h1>
+<ul>
+<li><input disabled="" type="checkbox"> Meaningful possessions and final equipment recorded.</li>
+<li><input disabled="" type="checkbox"> Alex&#39;s PC remains safely at The Lantern House until the player returns.</li>
+<li><input disabled="" type="checkbox"> Buildings visited and structural damage recorded.</li>
+<li><input disabled="" type="checkbox"> Final Ragling Attention and colony condition recorded.</li>
+<li><input disabled="" type="checkbox"> Vey material recovered, retained, and disclosed recorded separately.</li>
+<li><input disabled="" type="checkbox"> Payment and voluntary salvage transactions recorded.</li>
+<li><input disabled="" type="checkbox"> Sable containment state and reliquary location recorded.</li>
+<li><input disabled="" type="checkbox"> Deepthorn, BM-6, instrument, ring, stairs, and symbol marked only if discovered.</li>
+<li><input disabled="" type="checkbox"> Lodging offered or declined; room cost paid if used.</li>
+<li><input disabled="" type="checkbox"> No new quest assigned.</li>
+</ul>
+<h2 id="deliberately-unresolved">Deliberately Unresolved</h2>
+<p>Do not resolve or select a canonical next plot from:</p>
+<ul>
+<li>BM-6 or the instrument&#39;s deeper destination.</li>
+<li>Vey&#39;s omitted stairs and the route below the collapse.</li>
+<li>The ancient symbol&#39;s builders or meaning.</li>
+<li>The origin of Sable House&#39;s reliquary.</li>
+<li>Long-term Bound consequences or cure.</li>
+<li>The vampire family tied to Marlowe&#39;s signet ring.</li>
+<li>The identity of the vampire tied to Deepthorn&#39;s parent tree.</li>
+<li>Locations shown on Vey&#39;s wider maps.</li>
+</ul>
+</article>
+        <footer class="site-footer">Locked manuscript SHA-256: 0D376C74EB3F4E167D46AED25394A548799A8F30A1BB0B3D6FBCA289AB9CB8DC</footer>
+      </div>
+    </main>
+  </div>
+
+  <div id="quick-reference" class="modal" hidden>
+    <section class="modal-panel" role="dialog" aria-modal="true" aria-label="Quick reference">
+      <header class="modal-header">
+        <span class="modal-title">Quick Reference</span>
+        <div class="quick-tabs"><button type="button" data-quick-target="appendix-a--hutch-quick-reference">Hutch</button><button type="button" data-quick-target="appendix-b--ragling-attention-tracker">Attention</button><button type="button" data-quick-target="appendix-c--ragling-statistics">Raglings</button><button type="button" data-quick-target="appendix-d--treasure-and-rewards">Treasure</button><button type="button" data-quick-target="appendix-e--hearth--thorn-consumables">Consumables</button><button type="button" data-quick-target="appendix-f--tallow-street-quick-reference">Tallow St.</button><button type="button" data-quick-target="appendix-g--player-handout-index">Handouts</button><button type="button" data-quick-target="appendix-h--media-and-tv-display-reference">Media</button></div>
+        <button class="modal-close" type="button" data-action="close-quick">CLOSE</button>
+      </header>
+      <div class="modal-body"></div>
+    </section>
+  </div>
+
+  <div id="lightbox" class="modal" hidden>
+    <section class="modal-panel lightbox-panel" role="dialog" aria-modal="true" aria-label="GM image viewer">
+      <header class="modal-header"><span class="modal-title">GM Image View</span><button class="modal-close" type="button" data-action="close-lightbox">CLOSE</button></header>
+      <div class="lightbox-body"><img alt=""></div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
