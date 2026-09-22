@@ -312,6 +312,15 @@ button { cursor: pointer; }
   border-bottom: 1px solid var(--line);
 }
 
+.title-banner {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 2.75rem;
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 1rem 2.5rem rgb(37 24 18 / 22%);
+}
+
 .title-page h1 {
   margin: 0;
   color: var(--burgundy-dark);
